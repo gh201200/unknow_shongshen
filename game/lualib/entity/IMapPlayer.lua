@@ -125,7 +125,6 @@ function IMapPlayer:init(heroId)
 	if self.isAI == true then
 		self.ai = PVPAI.new(self)
 	end
-	print(g_shareData.heroRepository[heroId])
 	self.attDat = g_shareData.heroRepository[heroId]
 	if not self.attDat then
 		syslog.err("IMapPlayer:init: attDat is nil "..heroId)
@@ -134,11 +133,6 @@ function IMapPlayer:init(heroId)
 	self:setCommonSkill( self.attDat.n32CommonSkillId )
 	self.skillTable[self.attDat.n32GodSkillId] = 0
 	self.skillTable[self.attDat.n32CommonSkillId] = 1
-	self.skillTable[self.attDat.n32SkillId1] = 1
-	self.skillTable[self.attDat.n32SkillId2] = 1
-	self.skillTable[self.attDat.n32SkillId3] = 1
-	
-	
 	self.modelDat = g_shareData.heroModelRepository[self.attDat.n32ModelId]
 	self:setPos(self.bornPos.x, 0, self.bornPos.z)
 	self:calcStats()
@@ -247,7 +241,6 @@ function IMapPlayer:onExp()
 end
 
 function IMapPlayer:addSkill(skillId, updateToClient)
-	print("addSkill",self.skillTable)
 	if self.skillTable[skillId]  == nil then
 		self.skillTable[skillId] = 1
 	else
