@@ -125,6 +125,7 @@ function IMapPlayer:init(heroId)
 	if self.isAI == true then
 		self.ai = PVPAI.new(self)
 	end
+	print(g_shareData.heroRepository[heroId])
 	self.attDat = g_shareData.heroRepository[heroId]
 	if not self.attDat then
 		syslog.err("IMapPlayer:init: attDat is nil "..heroId)
@@ -246,6 +247,7 @@ function IMapPlayer:onExp()
 end
 
 function IMapPlayer:addSkill(skillId, updateToClient)
+	print("addSkill",self.skillTable)
 	if self.skillTable[skillId]  == nil then
 		self.skillTable[skillId] = 1
 	else
