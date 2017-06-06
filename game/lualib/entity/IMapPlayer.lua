@@ -133,6 +133,11 @@ function IMapPlayer:init(heroId)
 	self:setCommonSkill( self.attDat.n32CommonSkillId )
 	self.skillTable[self.attDat.n32GodSkillId] = 0
 	self.skillTable[self.attDat.n32CommonSkillId] = 1
+	self.skillTable[self.attDat.n32SkillId1] = 1
+	self.skillTable[self.attDat.n32SkillId2] = 1
+	self.skillTable[self.attDat.n32SkillId3] = 1
+	
+	
 	self.modelDat = g_shareData.heroModelRepository[self.attDat.n32ModelId]
 	self:setPos(self.bornPos.x, 0, self.bornPos.z)
 	self:calcStats()
