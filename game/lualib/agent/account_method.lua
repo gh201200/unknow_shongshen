@@ -153,7 +153,7 @@ local AccountMethod =
 			self:sendAccountData()
 			
 			local database = skynet.uniqueservice("database")		
-			skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "exploretimes", "buyboxtimes")
+			skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "exploretimes", "buyboxtimes", "refreshtime")
 			-- skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "buyboxtimes")
 		end
 	end;
