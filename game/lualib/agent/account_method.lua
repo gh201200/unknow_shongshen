@@ -145,6 +145,8 @@ local AccountMethod =
 	
 	--根据时间刷新 探索和宝箱购买次数
 	refreshTimes = function(self)
+		print(self.unit.refreshtime, os.time())
+		print(os.time(), Time.tomorrow())
 		if self.unit.refreshtime < os.time() then
 			self.unit.exploretimes = 20
 			self.unit.buyboxtimes = 20
@@ -153,7 +155,8 @@ local AccountMethod =
 			self:sendAccountData()
 			
 			local database = skynet.uniqueservice("database")		
-			skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "exploretimes", "buyboxtimes")
+			skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "exploretimes", "buyboxtimes", "refreshtime")
+			--ynet.call (database, "lua", "account", "update", self.account_id, self.unit, "exploretimes", "buyboxtimes")
 			-- skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "buyboxtimes")
 		end
 	end;
