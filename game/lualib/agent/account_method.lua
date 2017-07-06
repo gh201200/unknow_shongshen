@@ -156,10 +156,7 @@ local AccountMethod =
 			
 			local database = skynet.uniqueservice("database")		
 			skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "exploretimes", "buyboxtimes", "refreshtime")
-<<<<<<< HEAD
-=======
 			--ynet.call (database, "lua", "account", "update", self.account_id, self.unit, "exploretimes", "buyboxtimes")
->>>>>>> 4db37340fc350ba8cdc7936d67b3b18da19c12fd
 			-- skynet.call (database, "lua", "account", "update", self.account_id, self.unit, "buyboxtimes")
 		end
 	end;
